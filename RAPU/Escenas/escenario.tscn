@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1lyxuhna1mk1"]
+
+[ext_resource type="Texture2D" uid="uid://dkiwv65es3cid" path="res://Sprites/Rapu Sprites/istockphoto-910097264-612x612.jpg" id="2_3ghl4"]
+[ext_resource type="Texture2D" uid="uid://hdr7mmfn1vt8" path="res://Sprites/Rapu Sprites/fondo-inconsútil-del-arte-pixel-103455434.webp" id="2_qnjsb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4s6on"]
+size = Vector2(1244, 226.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8kjv"]
+size = Vector2(535.5, 697)
+
+[node name="Escenario" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(32, 33)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(241.5, 142.5)
+scale = Vector2(0.78268, 0.821326)
+texture = ExtResource("2_3ghl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(368, 351.75)
+shape = SubResource("RectangleShape2D_4s6on")
+
+[node name="Fondo-inconsútil-del-arte-pixel-103455434" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(732, 146)
+scale = Vector2(0.63, 0.637555)
+texture = ExtResource("2_qnjsb")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-234, 152.5)
+shape = SubResource("RectangleShape2D_n8kjv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1282, 151)
+shape = SubResource("RectangleShape2D_n8kjv")

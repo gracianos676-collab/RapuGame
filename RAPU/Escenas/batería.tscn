@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://djocdamr8kl2l"]
+
+[ext_resource type="Texture2D" uid="uid://unil417l4e0c" path="res://Sprites/items/batería bajo.png" id="1_l07ok"]
+[ext_resource type="Script" uid="uid://b2ngexulfoka0" path="res://Scripts/Batería.gd" id="2_f0lel"]
+
+[node name="Batería" type="Node"]
+
+[node name="Imagen" type="Sprite2D" parent="."]
+texture = ExtResource("1_l07ok")
+script = ExtResource("2_f0lel")

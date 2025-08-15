@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxgcvr1efaen7"]
+
+[ext_resource type="Script" uid="uid://dyuoy2vs68nof" path="res://Scripts/enemigo.gd" id="1_2wuxy"]
+[ext_resource type="Texture2D" uid="uid://kle1jptjnsjk" path="res://Sprites/Rapu Sprites/Pixel Eld.png" id="1_20n37"]
+[ext_resource type="Script" uid="uid://cjycp8fvj3ay5" path="res://Scripts/RayCast left.gd" id="3_75ahf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtx7o"]
+size = Vector2(18.5, 60.184)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(0.9, 0.9)
+script = ExtResource("1_2wuxy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.33333, -4.44444)
+scale = Vector2(0.198, 0.269)
+texture = ExtResource("1_20n37")
+
+[node name="RayCast down" type="RayCast2D" parent="Sprite2D"]
+position = Vector2(-145.903, 20.6526)
+scale = Vector2(5.04203, 3.71517)
+target_position = Vector2(5.72205e-06, 43.3602)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.0191)
+shape = SubResource("RectangleShape2D_dtx7o")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(1.90735e-06, -2.38419e-07)
+rotation = 1.57165
+target_position = Vector2(0.0597593, 70)
+script = ExtResource("3_75ahf")

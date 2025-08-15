@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://g5ijughllsu7"]
+
+[ext_resource type="PackedScene" uid="uid://d1lyxuhna1mk1" path="res://Escenas/escenario.tscn" id="2_ahjqt"]
+[ext_resource type="PackedScene" uid="uid://c5v5bwfofehrm" path="res://Escenas/Rapu.tscn" id="3_okcdm"]
+[ext_resource type="Script" uid="uid://btww80y8gy5l3" path="res://Scripts/Label.gd" id="3_ww6tt"]
+[ext_resource type="Script" uid="uid://bhwuldijf0rgi" path="res://Scripts/life.gd" id="5_bnnde"]
+[ext_resource type="PackedScene" uid="uid://cxgcvr1efaen7" path="res://Escenas/enemigo.tscn" id="5_yld8c"]
+[ext_resource type="Texture2D" uid="uid://unil417l4e0c" path="res://Sprites/items/batería bajo.png" id="6_nyl6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek2ou"]
+size = Vector2(17.5, 27.5)
+
+[node name="prueba" type="Node2D"]
+
+[node name="Node2D2" parent="." instance=ExtResource("2_ahjqt")]
+position = Vector2(152, -160)
+
+[node name="interfaz" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="interfaz"]
+
+[node name="life" type="Label" parent="interfaz/CanvasLayer"]
+offset_left = 4.0
+offset_top = 207.0
+offset_right = 94.0
+offset_bottom = 230.0
+scale = Vector2(1.344, 1.467)
+script = ExtResource("5_bnnde")
+metadata/_edit_use_anchors_ = true
+
+[node name="energy" type="Label" parent="interfaz/CanvasLayer"]
+light_mask = 331
+visibility_layer = 385
+offset_left = 3.0
+offset_top = 230.0
+offset_right = 93.0
+offset_bottom = 253.0
+scale = Vector2(1.34383, 1.46686)
+justification_flags = 0
+script = ExtResource("3_ww6tt")
+metadata/_edit_use_anchors_ = true
+
+[node name="Batería" type="Area2D" parent="." groups=["Item"]]
+position = Vector2(498, 57)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite" type="Sprite2D" parent="Batería"]
+position = Vector2(2.00001, -2.50002)
+texture = ExtResource("6_nyl6t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Batería"]
+position = Vector2(2.00001, -2.5)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_ek2ou")
+
+[node name="Rapu" parent="." instance=ExtResource("3_okcdm")]
+position = Vector2(259, 78)
+scale = Vector2(0.638, 0.638)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_yld8c")]
+position = Vector2(67, -397)
+
+[connection signal="energia" from="Rapu" to="interfaz/CanvasLayer/energy" method="_on_rapu_energia"]
+[connection signal="vitalidad" from="Rapu" to="interfaz/CanvasLayer/life" method="_on_rapu_vitalidad"]
