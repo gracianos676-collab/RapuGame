@@ -146,8 +146,5 @@ light_mask = 0
 position = Vector2(7.5, -24)
 shape = SubResource("RectangleShape2D_86a7v")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(3, -83)
-
 [connection signal="timeout" from="Regeneración x Seg" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
