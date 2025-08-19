@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c5v5bwfofehrm"]
+[gd_scene load_steps=23 format=3 uid="uid://c5v5bwfofehrm"]
 
 [ext_resource type="Script" uid="uid://jdavhlgf5qft" path="res://Scripts/CharacterBody2D.gd" id="1_0qrpf"]
 [ext_resource type="Texture2D" uid="uid://ccnlghipv75rf" path="res://Sprites/Rapu Sprites/Rapu.png" id="2_2m6mv"]
@@ -115,6 +115,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hhfi"]
 size = Vector2(31, 100)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8wr4"]
+size = Vector2(31, 53)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86a7v"]
 size = Vector2(31, 100)
 
@@ -134,6 +137,11 @@ animation = &"base"
 position = Vector2(-0.5, -7)
 shape = SubResource("RectangleShape2D_7hhfi")
 
+[node name="CollisionAbajo" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.5, 16.5)
+shape = SubResource("RectangleShape2D_a8wr4")
+
 [node name="Regeneración x Seg" type="Timer" parent="."]
 autostart = true
 
@@ -145,6 +153,9 @@ script = ExtResource("4_kecid")
 light_mask = 0
 position = Vector2(7.5, -24)
 shape = SubResource("RectangleShape2D_86a7v")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
 
 [connection signal="timeout" from="Regeneración x Seg" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

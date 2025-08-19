@@ -22,7 +22,8 @@ enum Estado {
 	Correr,
 	Saltar,
 	Caer,
-	Tepear}
+	Tepear,
+	Abajo}
 var Estado_Actual = Estado.Quieto
 
 func _physics_process(delta):
@@ -76,6 +77,7 @@ func _physics_process(delta):
 			var direction = Input.get_axis("Izquierda", "Derecha")
 			var saltar = Input.is_action_just_pressed("Saltar")
 			var tp = Input.is_action_just_pressed("Teletransporte") and energía >= 30 and teleport == true
+			var abajo = Input.is_action_pressed("Hagachar")
 			var freno_aereo = velocidad * 0.1
 			if not is_on_floor():
 				if doble_salto and saltar:
@@ -93,6 +95,8 @@ func _physics_process(delta):
 				Estado_Actual = Estado.Quieto
 			if tp:
 				Estado_Actual = Estado.Tepear
+			if abajo:
+				Estado_Actual = Estado.Abajo
 
 		Estado.Tepear:	
 			teleport = false
@@ -108,9 +112,20 @@ func _physics_process(delta):
 				Estado_Actual = Estado.Quieto
 					
 
-	if Input.is_action_pressed("Hagachar"):
-		velocity.y += 100
-		print("hagacho :D")
+		Estado.Abajo:
+			var saltar = Input.is_action_just_pressed("Saltar")
+			var hagacho = Input.is_action_pressed("Hagachar")
+			if not is_on_floor():
+				if hagacho:
+					velocity.y += 100
+					print("hagacho :D")
+				Estado_Actual = Estado.Caer
+			else:
+				if hagacho:
+					$CollisionShape2D.disabled = false
+				else:
+				#$CollisionAbajo.Visible = true
+					Estado_Actual = Estado.Quieto
 		
 	if (mirar_izquierda and velocity.x < 0) or (not mirar_izquierda and velocity.x > 0):
 		scale.x *= -1

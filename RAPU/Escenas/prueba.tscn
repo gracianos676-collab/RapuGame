@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://g5ijughllsu7"]
+[gd_scene load_steps=8 format=3 uid="uid://g5ijughllsu7"]
 
 [ext_resource type="PackedScene" uid="uid://d1lyxuhna1mk1" path="res://Escenas/escenario.tscn" id="2_ahjqt"]
-[ext_resource type="Script" uid="uid://f5se33r2ng4p" path="res://Escenas/camera_2d.gd" id="2_t0665"]
 [ext_resource type="PackedScene" uid="uid://c5v5bwfofehrm" path="res://Escenas/Rapu.tscn" id="3_okcdm"]
 [ext_resource type="Script" uid="uid://btww80y8gy5l3" path="res://Scripts/Label.gd" id="3_ww6tt"]
 [ext_resource type="Script" uid="uid://bhwuldijf0rgi" path="res://Scripts/life.gd" id="5_bnnde"]
@@ -57,12 +56,6 @@ shape = SubResource("RectangleShape2D_ek2ou")
 [node name="Rapu" parent="." instance=ExtResource("3_okcdm")]
 position = Vector2(486, 62)
 scale = Vector2(0.638, 0.638)
-
-[node name="Camera2D2" type="Camera2D" parent="Rapu" node_paths=PackedStringArray("objetivo")]
-position = Vector2(7.83698, -81.5047)
-scale = Vector2(1.5674, 1.5674)
-script = ExtResource("2_t0665")
-objetivo = NodePath("..")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_yld8c")]
 position = Vector2(67, -397)
