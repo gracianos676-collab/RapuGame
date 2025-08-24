@@ -115,17 +115,13 @@ func _physics_process(delta):
 		Estado.Abajo:
 			var saltar = Input.is_action_just_pressed("Saltar")
 			var hagacho = Input.is_action_pressed("Hagachar")
-			if not is_on_floor():
+			if is_on_floor():
 				if hagacho:
 					velocity.y += 100
 					print("hagacho :D")
 				Estado_Actual = Estado.Caer
-			else:
-				if hagacho:
-					$CollisionShape2D.disabled = false
-				else:
-				#$CollisionAbajo.Visible = true
-					Estado_Actual = Estado.Quieto
+			elif hagacho:
+				pass
 		
 	if (mirar_izquierda and velocity.x < 0) or (not mirar_izquierda and velocity.x > 0):
 		scale.x *= -1

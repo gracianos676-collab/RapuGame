@@ -58,7 +58,7 @@ position = Vector2(486, 62)
 scale = Vector2(0.638, 0.638)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_yld8c")]
-position = Vector2(67, -397)
+position = Vector2(939, 27)
 
 [connection signal="energia" from="Rapu" to="interfaz/CanvasLayer/energy" method="_on_rapu_energia"]
 [connection signal="vitalidad" from="Rapu" to="interfaz/CanvasLayer/life" method="_on_rapu_vitalidad"]
